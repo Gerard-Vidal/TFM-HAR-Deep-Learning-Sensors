@@ -26,7 +26,7 @@ This project paves the way for direct applications in daily life assistance and 
 ##  Repository Structure
 * `HAR_DeepLearning_Modeling.ipynb`: Main notebook containing Sensor Fusion processing, LOSO training loop, class balancing strategies, and evaluation.
 * `Memoria_TFM_Gerard_Vidal.pdf`: Full technical documentation, theoretical framework, methodological justification, and exhaustive conclusions (Written in Catalan).
-* `Presentacio_Resultats.pdf`: Visual synthesis of the challenges, the impact of recurrence on results, and final metrics (Written in Catalan).
+* `POWERTFM.pdf`: Visual synthesis of the challenges, the impact of recurrence on results, and final metrics (Written in Catalan).
 
 ##  Tech Stack
 `Python` | `Pandas` | `Scikit-Learn` | `Deep Learning (CNN/LSTM)` | `Sensor Fusion` | `Time Series Analysis`
