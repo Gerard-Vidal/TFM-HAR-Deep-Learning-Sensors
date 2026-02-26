@@ -1,34 +1,32 @@
-# Human Activity Recognition (HAR) amb Deep Learning i Sensors Inercials 🚶‍♂️📱⌚
+# Human Activity Recognition (HAR) using Deep Learning and Inertial Sensors 
 
-Aquest projecte aborda un repte crític en l'àmbit del reconeixement d'activitat humana (HAR) per a la monitorització de la salut: el **problema *cross-user***. L'objectiu és superar el clàssic *overfitting* biomètric i assegurar que el model sigui capaç de generalitzar correctament i predir l'activitat en usuaris completament nous.
+This project addresses a critical challenge in Human Activity Recognition (HAR) for health monitoring: the **cross-user problem**. The goal is to overcome classic biometric overfitting and ensure the model can generalize correctly to predict the activity of completely unseen users.
 
-## 🧠 Enfocament Tècnic i Metodologia
-S'ha realitzat una anàlisi rigorosa comparant aproximacions clàssiques de Machine Learning amb arquitectures de Deep Learning, utilitzant un dataset públic (Zenodo) amb 23 participants de complexions físiques diverses.
+##  Technical Approach & Methodology
+A rigorous comparative analysis was conducted between classic Machine Learning approaches and Deep Learning architectures, using a public dataset (Zenodo) featuring 23 participants with diverse physical profiles.
 
-* **Sensor Fusion (Early Fusion):** Integració de dades d'acceleròmetre i giroscopi procedents simultàniament d'un telèfon i un rellotge intel·ligent.
-* **Avaluació de Models:** Random Forest (Baseline), Convolutional Neural Networks (CNN) i l'arquitectura híbrida **DeepConvLSTM**.
-* **Validació Robusta:** Aplicació estricta del protocol *Leave-One-Subject-Out (LOSO)* per simular un entorn d'implementació real *Plug & Play*.
+* **Sensor Fusion (Early Fusion):** Integration of accelerometer and gyroscope data collected simultaneously from a smartphone and a smartwatch.
+* **Model Evaluation:** Random Forest (Baseline), Convolutional Neural Networks (CNN), and the hybrid **DeepConvLSTM** architecture.
+* **Robust Validation:** Strict application of the *Leave-One-Subject-Out (LOSO)* protocol to simulate a real-world *Plug & Play* deployment.
 
+## Key Results
+The **DeepConvLSTM** architecture proved to be the most robust model, clearly outperforming static models in *cross-user* scenarios:
 
+* **80.82% Global Accuracy** for unseen users, outperforming Random Forest (78.90%) and standard CNN (75.75%).
+* **Detection of Complex Transitions (Turning):** Combining temporal memory (LSTM) with a class-weighting strategy corrected the "blindness" of classic models, raising the Recall for the Turning class from 0.21 to 0.50.
+* **Generalization Achieved:** The model learns universal biomechanical patterns instead of memorizing the user's unique movement "signature".
 
-## 📊 Resultats Destacats
-L'arquitectura **DeepConvLSTM** s'ha consolidat com el model més robust, superant clarament els models estàtics en escenaris *cross-user*:
+##  Future Work & Applications
+This project paves the way for direct applications in daily life assistance and eldercare:
+1. **Real-Time Deployment:** Porting the trained model to a mobile app to evaluate latency and energy consumption.
+2. **Demographic Expansion:** Validating the model with data from individuals over 70 to certify its viability in geriatrics.
+3. **Attention Mechanisms:** Exploring Transformer-based architectures to automatically weight the importance of each sensor depending on the activity.
+4. **Domain Generalization:** Testing the model's robustness against hardware changes by applying it to other public datasets (WISDM, MotionSense).
 
-* **80.82% d'Exactitud Global (Accuracy)** per a usuaris nous, superant el Random Forest (78.90%) i la CNN estàndard (75.75%).
-* **Detecció de Transicions Complexes (Turning):** La combinació de la memòria temporal (LSTM) amb una estratègia de pesos manuals (*class-weighting*) ha corregit la "ceguesa" dels models clàssics, elevant el Recall de la classe Girar de 0.21 a 0.50.
-* **Generalització Assolida:** El model aprèn patrons biomecànics universals en lloc de memoritzar la "signatura" de moviment de l'usuari.
+##  Repository Structure
+* `HAR_DeepLearning_Modeling.ipynb`: Main notebook containing Sensor Fusion processing, LOSO training loop, class balancing strategies, and evaluation.
+* `Memoria_TFM_Gerard_Vidal.pdf`: Full technical documentation, theoretical framework, methodological justification, and exhaustive conclusions (Written in Catalan).
+* `Presentacio_Resultats.pdf`: Visual synthesis of the challenges, the impact of recurrence on results, and final metrics (Written in Catalan).
 
-## 🚀 Línies de Treball Futur
-El projecte obre la porta a diverses aplicacions directes en l'assistència a la vida quotidiana:
-1. **Temps Real:** Desplegament del model en una aplicació mòbil per avaluar latència i consum energètic.
-2. **Amplicació Demogràfica:** Validació amb dades de persones majors de 70 anys per certificar la viabilitat en geriatria.
-3. **Mecanismes d'Atenció (Transformers):** Exploració de noves arquitectures per ponderar la importància de cada sensor segons l'activitat.
-4. **Generalització de Domini (Cross-Dataset):** Avaluar la resistència del model davant canvis de hardware aplicant-lo directament a altres datasets (WISDM, MotionSense).
-
-## 📂 Estructura del Repositori
-* `HAR_DeepLearning_Modeling.ipynb`: Notebook principal amb el processament de *Sensor Fusion*, bucle d'entrenament LOSO, estratègies de balanceig i avaluació.
-* `Memoria_TFM_Gerard_Vidal.pdf`: Documentació tècnica, marc teòric, justificació metodològica i conclusions exhaustives.
-* `Presentacio_Resultats.pdf`: Síntesi visual dels reptes, l'impacte de la recurrència en els resultats i les mètriques finals.
-
-## 🛠️ Stack Tecnològic
+##  Tech Stack
 `Python` | `Pandas` | `Scikit-Learn` | `Deep Learning (CNN/LSTM)` | `Sensor Fusion` | `Time Series Analysis`
